@@ -125,13 +125,13 @@ USE_TZ = True
 # django利用STATIC_URL来让浏览器可以直接访问静态文件
 STATIC_URL = '/static/'
 
-#common_static
+#common_static,开发用
 STATICFILES_DIRS=[
   os.path.join(BASE_DIR, "static")
 ]
 
 # django会收集app下的静态文件、admin静态文件、STATICFILES_DIRS静态文件、及其他第三发库中包含的静态文件到这个目录下
-STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+STATIC_ROOT=os.path.join(BASE_DIR, 'static_collections')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
