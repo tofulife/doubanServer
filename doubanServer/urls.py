@@ -20,7 +20,7 @@ from django.urls import path, include,re_path
 from django.conf import settings
 from django.views.static import serve
 
-from doubanServer.settings import STATIC_ROOT
+from doubanServer.settings import  STATICFILES_DIRS
 
 
 urlpatterns = [
@@ -29,7 +29,7 @@ urlpatterns = [
     # include 函数导入 douban app的urls
     path('douban/',include('douban.urls')), 
     re_path(r'^static/(?P<path>.*)$',serve,{
-        'document_root':STATIC_ROOT
+        'document_root':STATICFILES_DIRS
     })
     
 ]
