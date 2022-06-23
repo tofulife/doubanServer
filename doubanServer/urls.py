@@ -14,15 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include,re_path
 
 # 获取django参数settings.py
 from django.conf import settings
+from django.views.static import serve
+
+from doubanServer.settings import STATIC_ROOT
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('douban/',include('douban.urls'))
+
+    # include 函数导入 douban app的urls
+    path('douban/',include('douban.urls')), 
+    re_path(r'^static/(?P<path>.*)$',serve,{
+        'document_root':STATIC_ROOT
+    })
+    
 ]
 
 if settings.DEBUG:

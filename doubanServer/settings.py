@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nyb%vkac%gx+r##!i&1f89f$=16#0@6cro@pj08_6rg$6qz&!*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0' ,'127.0.0.1','47.94.230.110']
 
 
 # Application definition
@@ -121,6 +122,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+#把APP静态资源收集到指定的目录下，这里我收集到static目录下
+STATIC_ROOT  = os.path.join(BASE_DIR, 'static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -135,7 +139,7 @@ DATABASES = {
         'NAME': 'douban', # 数据库名称
         'HOST': '47.94.230.110', # 数据库地址，本机 ip 地址 127.0.0.1 
         'PORT': 3306, # 端口 
-        'USER': 'root',  # 数据库用户名
+        'USER': 'douban',  # 数据库用户名
         'PASSWORD': 'Tofu1234!', # 数据库密码
     }  
 }
@@ -149,6 +153,11 @@ DEBUG_TOOLBAR_CONFIG = {
     # 是否显示工具栏
     'SHOW_TOOLBAR_CALLBACK': lambda x: True,
 }
+
+
+
+
+
 
 # 下面的配置根据项目需要进行设置
 REST_FRAMEWORK = {
