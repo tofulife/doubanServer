@@ -131,7 +131,7 @@ STATICFILES_DIRS=[
 ]
 
 # django会收集app下的静态文件、admin静态文件、STATICFILES_DIRS静态文件、及其他第三发库中包含的静态文件到这个目录下
-STATIC_ROOT=os.path.join(BASE_DIR, 'static_collections')
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
