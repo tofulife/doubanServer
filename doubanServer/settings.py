@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-nyb%vkac%gx+r##!i&1f89f$=16#0@6cro@pj08_6rg$6qz&!*
 DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0' ,'127.0.0.1','47.94.230.110']
-
+#ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -51,8 +51,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+if DEBUG:
+    MIDDLEWARE.insert(-1, 'debug_toolbar.middleware.DebugToolbarMiddleware')  # 插入对应位置
 
 ROOT_URLCONF = 'doubanServer.urls'
 
